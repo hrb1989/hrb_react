@@ -6,6 +6,7 @@ import TestDiv from './TestDiv';
 import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
 import { ClassComponent } from './ClassComponent';
+import ListKey from './listkey';
 
 
 // document.getElementById('eventDiv').innerHTML = message; //JS
@@ -75,10 +76,17 @@ import { ClassComponent } from './ClassComponent';
 
 
 // Here Location is a props
-const classCompo = ReactDOM.createRoot(document.getElementById('classComponent'));
-classCompo.render(
+// const classCompo = ReactDOM.createRoot(document.getElementById('classComponent'));
+// classCompo.render(
+//   <React.StrictMode>
+//     <ClassComponent location="Madurai"/>
+//   </React.StrictMode>
+// );
+
+const listkey = ReactDOM.createRoot(document.getElementById('listkey'));
+listkey.render(
   <React.StrictMode>
-    <ClassComponent location="Madurai"/>
+    <ListKey />
   </React.StrictMode>
 );
 
