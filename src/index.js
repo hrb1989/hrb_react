@@ -7,7 +7,7 @@ import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
 import { ClassComponent } from './ClassComponent';
 import ListKey from './listkey';
-import HooksComponent from './HooksComponent';
+import {HooksComponent, EffectApp} from './HooksComponent';
 
 
 // document.getElementById('eventDiv').innerHTML = message; //JS
@@ -95,6 +95,7 @@ const hooksDiv = ReactDOM.createRoot(document.getElementById('hooks'));
 hooksDiv.render(
   <React.StrictMode>
     <HooksComponent />
+    <EffectApp />
   </React.StrictMode>
 );
 
