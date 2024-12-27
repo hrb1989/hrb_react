@@ -5,6 +5,7 @@ import App from './App';
 import TestDiv from './TestDiv'; 
 import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
+import { ClassComponent } from './ClassComponent';
 
 
 // document.getElementById('eventDiv').innerHTML = message; //JS
@@ -12,29 +13,29 @@ import reportWebVitals from './reportWebVitals';
 // eventDiv.innerHTML = message; //JS
 
 // const eventDiv = document.getElementById('eventDiv') //JS
-const root = ReactDOM.createRoot(document.getElementById('root'));
-// eventDiv.innerHTML = message; //JS
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// // eventDiv.innerHTML = message; //JS
+// root.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
 
-const test = ReactDOM.createRoot(document.getElementById('testDiv'));
-test.render(
-  <React.StrictMode>
-    <TestDiv />
-  </React.StrictMode>
-);
+// const test = ReactDOM.createRoot(document.getElementById('testDiv'));
+// test.render(
+//   <React.StrictMode>
+//     <TestDiv />
+//   </React.StrictMode>
+// );
 
-// here name="HRB" is a props
-const classDiv = ReactDOM.createRoot(document.getElementById('ClassDiv'));
-classDiv.render(
-  <React.StrictMode>
-    <ClassSample />
-    <FunctionSample name="HRB"/>
-  </React.StrictMode>
-);
+// // here name="HRB" is a props
+// const classDiv = ReactDOM.createRoot(document.getElementById('ClassDiv'));
+// classDiv.render(
+//   <React.StrictMode>
+//     <ClassSample />
+//     <FunctionSample name="HRB"/>
+//   </React.StrictMode>
+// );
 
 // JS
 // let cont;
@@ -71,6 +72,15 @@ classDiv.render(
 // test.render(
 //     content
 // );
+
+
+// Here Location is a props
+const classCompo = ReactDOM.createRoot(document.getElementById('classComponent'));
+classCompo.render(
+  <React.StrictMode>
+    <ClassComponent location="Madurai"/>
+  </React.StrictMode>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
