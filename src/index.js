@@ -7,6 +7,7 @@ import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
 import { ClassComponent } from './ClassComponent';
 import ListKey from './listkey';
+import HooksComponent from './HooksComponent';
 
 
 // document.getElementById('eventDiv').innerHTML = message; //JS
@@ -83,10 +84,17 @@ import ListKey from './listkey';
 //   </React.StrictMode>
 // );
 
-const listkey = ReactDOM.createRoot(document.getElementById('listkey'));
-listkey.render(
+// const listkey = ReactDOM.createRoot(document.getElementById('listkey'));
+// listkey.render(
+//   <React.StrictMode>
+//     <ListKey />
+//   </React.StrictMode>
+// );
+
+const hooksDiv = ReactDOM.createRoot(document.getElementById('hooks'));
+hooksDiv.render(
   <React.StrictMode>
-    <ListKey />
+    <HooksComponent />
   </React.StrictMode>
 );
 
