@@ -27,9 +27,10 @@ class ClassComponent extends Component {
             this.setState({location: "Hyderabad"})
         }, 2000)
     } 
-    changeName = () => {
+    changeName = (newName) => {
         this.setState({
-            name: "Hiran Ram Babu",
+            // name: "Hiran Ram Babu",
+            name: newName,
             email: "hrb@mjit.in"
         })
     }
@@ -49,7 +50,9 @@ class ClassComponent extends Component {
     // Updating
     // This will help to identify the virtualdom comparision
     componentDidUpdate () {
-        return console.log("Component Updated")
+        const newDiv = document.getElementById("newDiv");
+        newDiv.innerHTML = "Component Updated"
+        console.log("Component Updated")
     }
 
     deleteChild = () => {
@@ -77,7 +80,9 @@ class ClassComponent extends Component {
                 {this.state.email}
                 <br></br>
                 {this.state.location}
-                <button onClick={this.changeName}>Click Me</button>
+                {/* <button onClick={this.changeName}>Click Me</button> */}
+                <button onClick={() => this.changeName("Hiran Ram Babu")}>Click Me</button>
+                {/* <button onclick="changeName()">Click Me</button> */}
                 <br></br>
                 {childC}
                 <button onClick={this.deleteChild}>Delete me</button>
