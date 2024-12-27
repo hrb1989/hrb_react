@@ -12,9 +12,16 @@ class ClassSample extends Component {
 // export default ClassSample;
 
 
-function FunctionSample () {
+function FunctionSample (props) {
+    return (
+        <FunctionSample2 name={props.name}/>
+    );
+}
+
+function FunctionSample2 (props) {
     return (
         <div>
+            <h3>{props.name}</h3>
             Testing Function Sample
         </div>
     );

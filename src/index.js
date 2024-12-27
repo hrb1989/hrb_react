@@ -27,11 +27,12 @@ test.render(
   </React.StrictMode>
 );
 
+// here name="HRB" is a props
 const classDiv = ReactDOM.createRoot(document.getElementById('ClassDiv'));
 classDiv.render(
   <React.StrictMode>
     <ClassSample />
-    <FunctionSample />
+    <FunctionSample name="HRB"/>
   </React.StrictMode>
 );
 
