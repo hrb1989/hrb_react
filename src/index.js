@@ -10,7 +10,8 @@ import reportWebVitals from './reportWebVitals';
 // import {HooksComponent, EffectApp} from './HooksComponent';
 // import Chook from './Chook';
 // import FocusInput from './TestRefHook';
-import StateRef from './StateRef';
+// import StateRef from './StateRef';
+import PortalHook from './PortalHook';
 
 
 // document.getElementById('eventDiv').innerHTML = message; //JS
@@ -109,10 +110,17 @@ import StateRef from './StateRef';
 //   </React.StrictMode>
 // );
 
-const stateRef = ReactDOM.createRoot(document.getElementById('stateRef'));
-stateRef.render(
+// const stateRef = ReactDOM.createRoot(document.getElementById('stateRef'));
+// stateRef.render(
+//   <React.StrictMode>
+//     <StateRef />
+//   </React.StrictMode>
+// );
+
+const portalHook = ReactDOM.createRoot(document.getElementById('stateRef'));
+portalHook.render(
   <React.StrictMode>
-    <StateRef />
+    <PortalHook />
   </React.StrictMode>
 );
 
