@@ -8,7 +8,9 @@ import reportWebVitals from './reportWebVitals';
 // import { ClassComponent } from './ClassComponent';
 // import ListKey from './listkey';
 // import {HooksComponent, EffectApp} from './HooksComponent';
-import Chook from './Chook';
+// import Chook from './Chook';
+// import FocusInput from './TestRefHook';
+import StateRef from './StateRef';
 
 
 // document.getElementById('eventDiv').innerHTML = message; //JS
@@ -100,10 +102,17 @@ import Chook from './Chook';
 //   </React.StrictMode>
 // );
 
-const chookDiv = ReactDOM.createRoot(document.getElementById('cHook'));
-chookDiv.render(
+// const chookDiv = ReactDOM.createRoot(document.getElementById('cHook'));
+// chookDiv.render(
+//   <React.StrictMode>
+//     <Chook />
+//   </React.StrictMode>
+// );
+
+const stateRef = ReactDOM.createRoot(document.getElementById('stateRef'));
+stateRef.render(
   <React.StrictMode>
-    <Chook />
+    <StateRef />
   </React.StrictMode>
 );
 
