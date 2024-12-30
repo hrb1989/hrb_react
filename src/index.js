@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import TestDiv from './TestDiv'; 
-import {ClassSample, FunctionSample} from './ClassSample';
+// import App from './App';
+// import TestDiv from './TestDiv'; 
+// import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
-import { ClassComponent } from './ClassComponent';
-import ListKey from './listkey';
-import {HooksComponent, EffectApp} from './HooksComponent';
+// import { ClassComponent } from './ClassComponent';
+// import ListKey from './listkey';
+// import {HooksComponent, EffectApp} from './HooksComponent';
+import Chook from './Chook';
 
 
 // document.getElementById('eventDiv').innerHTML = message; //JS
@@ -91,11 +92,18 @@ import {HooksComponent, EffectApp} from './HooksComponent';
 //   </React.StrictMode>
 // );
 
-const hooksDiv = ReactDOM.createRoot(document.getElementById('hooks'));
-hooksDiv.render(
+// const hooksDiv = ReactDOM.createRoot(document.getElementById('hooks'));
+// hooksDiv.render(
+//   <React.StrictMode>
+//     <HooksComponent />
+//     <EffectApp />
+//   </React.StrictMode>
+// );
+
+const chookDiv = ReactDOM.createRoot(document.getElementById('cHook'));
+chookDiv.render(
   <React.StrictMode>
-    <HooksComponent />
-    <EffectApp />
+    <Chook />
   </React.StrictMode>
 );
 
