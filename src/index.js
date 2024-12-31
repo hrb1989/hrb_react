@@ -5,13 +5,16 @@ import './index.css';
 // import TestDiv from './TestDiv'; 
 // import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
+import AuthApp from './authApp';
+import AuthStatus from './authCheck';
 // import { ClassComponent } from './ClassComponent';
 // import ListKey from './listkey';
-// import {HooksComponent, EffectApp} from './HooksComponent';
+import {HooksComponent, EffectApp} from './HooksComponent';
 // import Chook from './Chook';
 // import FocusInput from './TestRefHook';
 // import StateRef from './StateRef';
-import PortalHook from './PortalHook';
+// import PortalHook from './PortalHook';
+
 
 
 // document.getElementById('eventDiv').innerHTML = message; //JS
@@ -95,13 +98,20 @@ import PortalHook from './PortalHook';
 //   </React.StrictMode>
 // );
 
-// const hooksDiv = ReactDOM.createRoot(document.getElementById('hooks'));
-// hooksDiv.render(
-//   <React.StrictMode>
-//     <HooksComponent />
-//     <EffectApp />
-//   </React.StrictMode>
-// );
+const hooksDiv = ReactDOM.createRoot(document.getElementById('hooks'));
+hooksDiv.render(
+  <React.StrictMode>
+    <AuthStatus
+      render={(isAuth) => 
+        isAuth ? (
+          <HooksComponent />
+        ) : (
+            <p>Please SignIn</p>
+        )
+    } />
+    <EffectApp />
+  </React.StrictMode>
+);
 
 // const chookDiv = ReactDOM.createRoot(document.getElementById('cHook'));
 // chookDiv.render(
@@ -117,10 +127,17 @@ import PortalHook from './PortalHook';
 //   </React.StrictMode>
 // );
 
-const portalHook = ReactDOM.createRoot(document.getElementById('stateRef'));
-portalHook.render(
+// const portalHook = ReactDOM.createRoot(document.getElementById('stateRef'));
+// portalHook.render(
+//   <React.StrictMode>
+//     <PortalHook />
+//   </React.StrictMode>
+// );
+
+const authCheck = ReactDOM.createRoot(document.getElementById('authCheck'));
+authCheck.render(
   <React.StrictMode>
-    <PortalHook />
+    <AuthApp />
   </React.StrictMode>
 );
 

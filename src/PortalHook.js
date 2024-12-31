@@ -1,5 +1,6 @@
 import { Component, useState, useRef } from "react";
 import { createPortal } from "react-dom";
+import ErrorBoundary from "./ErrorBoundary";
 
 
 const PortalHook = () => {
@@ -12,6 +13,7 @@ const PortalHook = () => {
         console.log("Ref Update", count.current);
     }
 
+
     const renIncrement = () => {
         setRenCount(prevCount => prevCount + 1);
         }
@@ -19,6 +21,7 @@ const PortalHook = () => {
     console.log("Rendered");
     return (
         <div>
+            <ErrorBoundary>
             {/* You have clicked {count.current} number of times!
             <br></br> */}
             <button onClick={increment}>Ref</button>
@@ -28,8 +31,15 @@ const PortalHook = () => {
                     You have clicked {count.current} number of times!
                 </div>, document.getElementById("portalDiv")
             )}
+            <JSBugs />
+            </ErrorBoundary>
         </div>
     );
 }
 
+//  Child Component, which has a error
+function JSBugs() {
+    const a = undefined;
+    throw new Error('I Crashed!')
+}
 export default PortalHook;
