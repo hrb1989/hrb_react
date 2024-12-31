@@ -5,11 +5,12 @@ import './index.css';
 // import TestDiv from './TestDiv'; 
 // import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
-import AuthApp from './authApp';
-import AuthStatus from './authCheck';
+import RRoute from './RRoute';
+// import AuthApp from './authApp';
+// import AuthStatus from './authCheck';
 // import { ClassComponent } from './ClassComponent';
 // import ListKey from './listkey';
-import {HooksComponent, EffectApp} from './HooksComponent';
+// import {HooksComponent, EffectApp} from './HooksComponent';
 // import Chook from './Chook';
 // import FocusInput from './TestRefHook';
 // import StateRef from './StateRef';
@@ -98,20 +99,20 @@ import {HooksComponent, EffectApp} from './HooksComponent';
 //   </React.StrictMode>
 // );
 
-const hooksDiv = ReactDOM.createRoot(document.getElementById('hooks'));
-hooksDiv.render(
-  <React.StrictMode>
-    <AuthStatus
-      render={(isAuth) => 
-        isAuth ? (
-          <HooksComponent />
-        ) : (
-            <p>Please SignIn</p>
-        )
-    } />
-    <EffectApp />
-  </React.StrictMode>
-);
+// const hooksDiv = ReactDOM.createRoot(document.getElementById('hooks'));
+// hooksDiv.render(
+//   <React.StrictMode>
+//     <AuthStatus
+//       render={(isAuth) => 
+//         isAuth ? (
+//           <HooksComponent />
+//         ) : (
+//             <p>Please SignIn</p>
+//         )
+//     } />
+//     <EffectApp />
+//   </React.StrictMode>
+// );
 
 // const chookDiv = ReactDOM.createRoot(document.getElementById('cHook'));
 // chookDiv.render(
@@ -134,10 +135,17 @@ hooksDiv.render(
 //   </React.StrictMode>
 // );
 
-const authCheck = ReactDOM.createRoot(document.getElementById('authCheck'));
-authCheck.render(
+// const authCheck = ReactDOM.createRoot(document.getElementById('authCheck'));
+// authCheck.render(
+//   <React.StrictMode>
+//     <AuthApp />
+//   </React.StrictMode>
+// );
+
+const rrouter = ReactDOM.createRoot(document.getElementById('router'));
+rrouter.render(
   <React.StrictMode>
-    <AuthApp />
+    <RRoute />
   </React.StrictMode>
 );
 
