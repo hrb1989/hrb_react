@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Router, Routes, Link, Outlet } from "react-router-dom";
+import { BrowserRouter, Route, Router, Routes, Link, Outlet, useParams } from "react-router-dom";
 
 function Home() {
     return(
@@ -30,6 +30,26 @@ function Team() {
     ); 
 }
 
+function Users(){
+    return (
+        <div>
+            Users Available
+            <nav>
+                <ul>
+                    <li><Link to="/users/1">User 1</Link></li> {/* Navigate options within Home Page */}
+                    <li><Link to="/users/2">User 2</Link></li> {/* Navigate options within Home Page */}
+                    <li><Link to="/users/3">User 3</Link></li> {/* Navigate options within Home Page */}
+                </ul>
+            </nav>
+            <Outlet /> {/* //placeholder for a child to render within Parent */}        
+        </div>)
+}
+
+function UserProfile(){
+    let {userId} = useParams();
+    return <div> User ID is {userId} </div>
+}
+
 function RRoute() {
     return(
         <BrowserRouter>
@@ -43,6 +63,9 @@ function RRoute() {
                         <li>
                             <Link to='/about'>About</Link>
                         </li>
+                        <li>
+                            <Link to='/users'>Users</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -51,6 +74,9 @@ function RRoute() {
                     <Route path="/team" element={<Team />}></Route> {/* Path within Home Page */}
                 </Route>
                 <Route path='/about' element={<About />}></Route> {/* Path of About Page */}
+                <Route path='/users' element={<Users />}>
+                    <Route path="/users/:userId" element={<UserProfile />}></Route> {/* Path within Home Page */}
+                </Route> {/* Path of About Page */}
             </Routes>
         </BrowserRouter>
     ); 
