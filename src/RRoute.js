@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Router, Routes, Link, Outlet, useParams, useNavigate, Navigate } from "react-router-dom";
 
 
-function ProtectedRoute({children}) { // children for the true scenario; React params
-    const isAuth = false;
-    return isAuth ? children : <Navigate to="/login" />
-}
+// function ProtectedRoute({children}) { // children for the true scenario; React params
+//     const isAuth = false;
+//     return isAuth ? children : <Navigate to="/login" />
+// }
 
 function Home() {
     let navigate = useNavigate();
@@ -71,7 +71,7 @@ function CaseStudy() {
 }
 
 function RRoute() {
-    // const isLoggedIn = false;
+    const isAuth = true;
     return(
         <BrowserRouter>
             <div>
@@ -96,7 +96,8 @@ function RRoute() {
                 </Route>
                 <Route path='/about' element={<About />}></Route> {/* Path of About Page */}
                 {/* <Route path='/users' element={<Users />}> */}
-                <Route path='/users' element={<ProtectedRoute><Users /></ProtectedRoute>}>
+                {/* <Route path='/users' element={<ProtectedRoute><Users /></ProtectedRoute>}> */}
+                <Route path='/users' element={isAuth ? <Users /> : <Navigate to="/login" />}>
                     {/* <Route path="/users/:userId" element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route> Path within Home Page */}
                     <Route path="/users/:userId" element={<UserProfile />}></Route> {/* Path within Home Page */}
                 </Route> {/* Path of About Page */}
