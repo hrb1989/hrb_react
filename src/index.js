@@ -6,6 +6,9 @@ import './index.css';
 // import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
 import RRoute from './RRoute';
+import { Provider } from 'react-redux';
+import store from './store';
+import ReduxApp from './ReduxApp';
 // import AuthApp from './authApp';
 // import AuthStatus from './authCheck';
 // import { ClassComponent } from './ClassComponent';
@@ -142,10 +145,19 @@ import RRoute from './RRoute';
 //   </React.StrictMode>
 // );
 
-const rrouter = ReactDOM.createRoot(document.getElementById('router'));
-rrouter.render(
+// const rrouter = ReactDOM.createRoot(document.getElementById('router'));
+// rrouter.render(
+//   <React.StrictMode>
+//     <RRoute />
+//   </React.StrictMode>
+// );
+
+const reduxDiv = ReactDOM.createRoot(document.getElementById('reduxDiv'));
+reduxDiv.render(
   <React.StrictMode>
-    <RRoute />
+    <Provider store={store}>
+      <ReduxApp />
+    </Provider>
   </React.StrictMode>
 );
 
