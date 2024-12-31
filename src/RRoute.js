@@ -1,4 +1,10 @@
-import { BrowserRouter, Route, Router, Routes, Link, Outlet, useParams, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Router, Routes, Link, Outlet, useParams, useNavigate, Navigate } from "react-router-dom";
+
+
+function ProtectedRoute({children}) { // children for the true scenario; React params
+    const isAuth = false;
+    return isAuth ? children : <Navigate to="/login" />
+}
 
 function Home() {
     let navigate = useNavigate();
@@ -51,6 +57,10 @@ function Users(){
         </div>)
 }
 
+function Login(){
+    return <div><h2>Login Page</h2></div>
+}
+
 function UserProfile(){
     let {userId} = useParams();
     return <div> User ID is {userId} </div>
@@ -61,6 +71,7 @@ function CaseStudy() {
 }
 
 function RRoute() {
+    // const isLoggedIn = false;
     return(
         <BrowserRouter>
             <div>
@@ -84,10 +95,13 @@ function RRoute() {
                     <Route path="/team" element={<Team />}></Route> {/* Path within Home Page */}
                 </Route>
                 <Route path='/about' element={<About />}></Route> {/* Path of About Page */}
-                <Route path='/users' element={<Users />}>
+                {/* <Route path='/users' element={<Users />}> */}
+                <Route path='/users' element={<ProtectedRoute><Users /></ProtectedRoute>}>
+                    {/* <Route path="/users/:userId" element={<ProtectedRoute><UserProfile /></ProtectedRoute>}></Route> Path within Home Page */}
                     <Route path="/users/:userId" element={<UserProfile />}></Route> {/* Path within Home Page */}
                 </Route> {/* Path of About Page */}
                 <Route path='/casestudy' element={<CaseStudy />}></Route> {/* Path of About Page */}
+                <Route path='/login' element={<Login />}></Route> {/* Path of About Page */}
             </Routes>
         </BrowserRouter>
     ); 
