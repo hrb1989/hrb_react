@@ -1,6 +1,11 @@
-import { BrowserRouter, Route, Router, Routes, Link, Outlet, useParams } from "react-router-dom";
+import { BrowserRouter, Route, Router, Routes, Link, Outlet, useParams, useNavigate } from "react-router-dom";
 
 function Home() {
+    let navigate = useNavigate();
+    
+    const handleRedirect = () => {
+        navigate('/casestudy');
+    };
     return(
         <div>
             Home Page
@@ -9,6 +14,7 @@ function Home() {
                     <li><Link to="/team">Our Team</Link></li> {/* Navigate options within Home Page */}
                 </ul>
             </nav>
+            <button onClick={handleRedirect}>Go to Case Study</button>
             <Outlet /> {/* //placeholder for a child to render within Parent */}
         </div>
     ); 
@@ -50,6 +56,10 @@ function UserProfile(){
     return <div> User ID is {userId} </div>
 }
 
+function CaseStudy() {
+    return <h2>Case Study on React</h2>;
+}
+
 function RRoute() {
     return(
         <BrowserRouter>
@@ -77,6 +87,7 @@ function RRoute() {
                 <Route path='/users' element={<Users />}>
                     <Route path="/users/:userId" element={<UserProfile />}></Route> {/* Path within Home Page */}
                 </Route> {/* Path of About Page */}
+                <Route path='/casestudy' element={<CaseStudy />}></Route> {/* Path of About Page */}
             </Routes>
         </BrowserRouter>
     ); 
