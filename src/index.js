@@ -5,10 +5,11 @@ import './index.css';
 // import TestDiv from './TestDiv'; 
 // import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
-import RRoute from './RRoute';
-import { Provider } from 'react-redux';
-import store from './store';
-import ReduxApp from './ReduxApp';
+import ApiApp from './ApiApp';
+// import RRoute from './RRoute';
+// import { Provider } from 'react-redux';
+// import store from './store';
+// import ReduxApp from './ReduxApp';
 // import AuthApp from './authApp';
 // import AuthStatus from './authCheck';
 // import { ClassComponent } from './ClassComponent';
@@ -152,12 +153,19 @@ import ReduxApp from './ReduxApp';
 //   </React.StrictMode>
 // );
 
-const reduxDiv = ReactDOM.createRoot(document.getElementById('reduxDiv'));
-reduxDiv.render(
+// const reduxDiv = ReactDOM.createRoot(document.getElementById('reduxDiv'));
+// reduxDiv.render(
+//   <React.StrictMode>
+//     <Provider store={store}>
+//       <ReduxApp />
+//     </Provider>
+//   </React.StrictMode>
+// );
+
+const apiDiv = ReactDOM.createRoot(document.getElementById('apiDiv'));
+apiDiv.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ReduxApp />
-    </Provider>
+      <ApiApp />
   </React.StrictMode>
 );
 
