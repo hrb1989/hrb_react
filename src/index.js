@@ -6,6 +6,7 @@ import './index.css';
 // import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
 import ApiApp from './ApiApp';
+import ChartDiv from './ChartDiv';
 // import RRoute from './RRoute';
 // import { Provider } from 'react-redux';
 // import store from './store';
@@ -162,12 +163,20 @@ import ApiApp from './ApiApp';
 //   </React.StrictMode>
 // );
 
-const apiDiv = ReactDOM.createRoot(document.getElementById('apiDiv'));
-apiDiv.render(
+// const apiDiv = ReactDOM.createRoot(document.getElementById('apiDiv'));
+// apiDiv.render(
+//   <React.StrictMode>
+//       <ApiApp />
+//   </React.StrictMode>
+// );
+
+const chartDiv = ReactDOM.createRoot(document.getElementById('chartDiv'));
+chartDiv.render(
   <React.StrictMode>
-      <ApiApp />
+      <ChartDiv />
   </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
