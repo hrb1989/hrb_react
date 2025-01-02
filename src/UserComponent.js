@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser, clearUser } from './userReducer';
+import styled from 'styled-components';
 
 const UserComponent = () => {
   const dispatch = useDispatch();
@@ -14,17 +15,26 @@ const UserComponent = () => {
     dispatch(clearUser());
   };
 
+  const Button = styled.button` // styled.button{[]}
+  background-color: ${props => (props.Logged ? 'red' : 'blue')};
+  color: white;
+`;
+
+const H2 = styled.h2` // styled.button{[]}
+  color: Red;
+`;
+
   return (
     <div>
       {user ? (
         <>
           <h2>Welcome, {user.name}</h2>
-          <button onClick={handleLogout}>Log Out</button>
+          <Button Logged onClick={handleLogout}>Log Out</Button>
         </>
       ) : (
         <>
-          <h2>No user logged in</h2>
-          <button onClick={handleLogin}>Log In</button>
+          <H2>No user logged in</H2>
+          <Button onClick={handleLogin}>Log In</Button>
         </>
       )}
     </div>
