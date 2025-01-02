@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 function ApiApp() {
@@ -5,10 +6,23 @@ function ApiApp() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
-    .then(response => response.json())
-    .then(data => {
-        setData(data);
+    // fetch('https://jsonplaceholder.typicode.com/todos')
+    // .then(response => response.json())
+    // .then(data => {
+    //     setData(data);
+    //     setLoading(false);
+    // })
+    // .catch((error) => {
+    //     console.error('Error: ', error);
+    //     setLoading(false);
+    // });
+    axios.get('https://jsonplaceholder.typicode.com/todos')
+    .then((response) => {
+        setData(response.data);
+        setLoading(false);
+    })
+    .catch((error) => {
+        console.error('Error: ', error);
         setLoading(false);
     });
 },[]) // render only once
