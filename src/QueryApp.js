@@ -18,7 +18,8 @@ const QueryApp = () => {
     //         queryFn:async () => {
     //             const response = await fetch('https://jsonplaceholder.typicode.com/todos');
     //             return response.json();
-    //         }
+    //         },
+    //         refetchInterval:2000, // for refetching on an interval of 2 sec
     //     });
 
     //     if (isLoading) return <div><h2>Loading....</h2></div>
