@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 // import ApiApp from './ApiApp';
 // import ChartDiv from './ChartDiv';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import QueryApp from './QueryApp';
+import {QueryApp, MutateApp} from './QueryApp';
 // import RRoute from './RRoute';
 // import { Provider } from 'react-redux';
 // import store from './store';
@@ -188,6 +188,7 @@ queryDiv.render(
         queryclientprovider - query client is available to the application */}
     <QueryClientProvider client={queryClient}>
         <QueryApp />
+        <MutateApp />
     </QueryClientProvider>      
   </React.StrictMode>
 );

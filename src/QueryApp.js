@@ -1,30 +1,50 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 // useQuery - Read the data with an API - fetching, caching & even handle the errors
 // const {data, error, isLoading, isError, isSuccess} = useQuery(queryKey, fetchFn, options);
 // const {mutate, error, isLoading, isError, isSuccess} = useMutation(mutateFn, options);
 
+const QueryApp = () => {
+    const {data, error, isLoading, isError} = useQuery(
+        {
+            queryKey:['todos'], 
+            queryFn:async () => {
+                const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+                return response.json();
+            },
+            suspense: true,
+            // refetchInterval:2000, // for refetching on an interval of 2 sec
+        });
+
+        if (isLoading) return <div><h2>Loading....</h2></div>
+        if (isError) return <div><h2>Error: {error.message}</h2></div>
+
+    return (
+        <div>
+            <Suspense fallback={
+                <div>
+                    I got suspended
+                </div>
+            }>
+            <h2>Todos</h2>
+            <ul>
+                {data.map(todo =>(
+                    <li key={todo.id}>{todo.title}</li>
+                    ))
+                }
+            </ul>
+            </Suspense>
+        </div>
+    );
+}
+
 const createPost = async  (newPost) => {
     const response = await axios.post('https://jsonplaceholder.typicode.com/posts', newPost);
     return response.data;
 };
-
-const QueryApp = () => {
-    // const {data, error, isLoading, isError} = useQuery(
-    //     {
-    //         queryKey:['todos'], 
-    //         queryFn:async () => {
-    //             const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-    //             return response.json();
-    //         },
-    //         refetchInterval:2000, // for refetching on an interval of 2 sec
-    //     });
-
-    //     if (isLoading) return <div><h2>Loading....</h2></div>
-    //     if (isError) return <div><h2>Error: {error.message}</h2></div>
-
+const MutateApp = () => {
     const [postTitle, setPostTitle] = useState('');
     const [postBody, setPostBody] = useState('');
     const {mutate, error, isLoading, isError, isSuccess, data} = useMutation({
@@ -87,4 +107,4 @@ const QueryApp = () => {
         </div>
     );
 }
-export default QueryApp;
+export {QueryApp, MutateApp};
