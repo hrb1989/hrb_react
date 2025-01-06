@@ -5,8 +5,10 @@ import './index.css';
 // import TestDiv from './TestDiv'; 
 // import {ClassSample, FunctionSample} from './ClassSample';
 import reportWebVitals from './reportWebVitals';
-import ApiApp from './ApiApp';
-import ChartDiv from './ChartDiv';
+// import ApiApp from './ApiApp';
+// import ChartDiv from './ChartDiv';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import QueryApp from './QueryApp';
 // import RRoute from './RRoute';
 // import { Provider } from 'react-redux';
 // import store from './store';
@@ -170,13 +172,25 @@ import ChartDiv from './ChartDiv';
 //   </React.StrictMode>
 // );
 
-const chartDiv = ReactDOM.createRoot(document.getElementById('chartDiv'));
-chartDiv.render(
+// const chartDiv = ReactDOM.createRoot(document.getElementById('chartDiv'));
+// chartDiv.render(
+//   <React.StrictMode>
+//       <ChartDiv />
+//   </React.StrictMode>
+// );
+
+
+const queryClient = new QueryClient();
+const queryDiv = ReactDOM.createRoot(document.getElementById('queryDiv'));
+queryDiv.render(
   <React.StrictMode>
-      <ChartDiv />
+    {/* queryclient - caching, background, asny data fetching
+        queryclientprovider - query client is available to the application */}
+    <QueryClientProvider client={queryClient}>
+        <QueryApp />
+    </QueryClientProvider>      
   </React.StrictMode>
 );
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
