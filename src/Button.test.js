@@ -26,3 +26,17 @@ test('test Clicking', () => {
     fireEvent.click(buttonElement); //Simulate clicking
     expect(handleClick).toHaveBeenCalledTimes(1);
  });
+
+// methods in react testing library
+// UI:
+    // render()
+    // unmount()
+// Querying the DOM
+    // screen.getByText()
+    // screen.getByRole()
+    // screen.getByLabelText()
+    // screen.getByPlaceholderText()
+// Simulation
+    // fireEvent.click()
+    // fireEvent.change()
+    // fireEvent.input()
